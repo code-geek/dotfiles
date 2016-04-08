@@ -13,7 +13,7 @@ endif
 set autoindent                 " Auto indent
 set autoread                   " Auto read file when modified externally
 set backspace=indent,eol,start " Backspace through everything
-set colorcolumn=80             " Ruler for maximum characters
+set colorcolumn=120            " Ruler for maximum characters
 set complete-=i                " Don't search included files
 set cursorline                 " Highlight current line
 set display+=lastline          " Display as much as possible content of last line
