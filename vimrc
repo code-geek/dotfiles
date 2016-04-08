@@ -330,8 +330,8 @@ let g:indentLine_char = '┆'
 " Vim Session
 "==============================================================================
 
-nnoremap <leader>so :OpenSession
-nnoremap <leader>ss :SaveSession
+nnoremap <leader>so :OpenSession 
+nnoremap <leader>ss :SaveSession 
 nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
 
