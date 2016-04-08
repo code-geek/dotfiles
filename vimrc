@@ -96,6 +96,9 @@ Plug 'junegunn/vim-peekaboo' "view contents of registers
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'justinmk/vim-gtfo' "Opens the file manager or terminal at the directory of the current file in Vim.
 
+Plug 'xolox/vim-session'
+Plug 'xolox/vim-misc'
+
 call plug#end()
 
 
@@ -323,3 +326,15 @@ autocmd FileType python set completeopt-=preview
 
 let g:indentLine_char = '┆'
 
+"==============================================================================
+" Vim Session
+"==============================================================================
+
+nnoremap <leader>so :OpenSession
+nnoremap <leader>ss :SaveSession
+nnoremap <leader>sd :DeleteSession<CR>
+nnoremap <leader>sc :CloseSession<CR>
+
+let g:session_autoload = "no"
+let g:session_autosave = "no"
+let g:session_command_aliases = 1
