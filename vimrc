@@ -33,7 +33,7 @@ set lazyredraw                 " Redraw only when we need to
 set list                       " Show invisible characters
 set noswapfile                 " Disable swap file
 set nowrap                     " Disable wrapping
-set relativenumber             " Shows relative line number
+set number                     " Shows line number
 set sessionoptions-=options    " Don't store options in sessions
 set shiftround                 " Round indent to multiple of 'shiftwidth'
 set shiftwidth=4               " Number of space insert/remove shifting line
@@ -90,10 +90,10 @@ Plug 'wellle/targets.vim' "more targets like da,
 Plug 'tomtom/tcomment_vim' "comments for vim
 Plug 'easymotion/vim-easymotion'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-" Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo' "view contents of registers
-" Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
+Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'justinmk/vim-gtfo' "Opens the file manager or terminal at the directory of the current file in Vim.
 
 call plug#end()
@@ -254,6 +254,27 @@ let g:flake8_show_in_gutter=1
 
 
 "==============================================================================
+" FZF
+"==============================================================================
+
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" Fzf layout
+let g:fzf_layout = { 'down': '40%' }
+
+" Mapping
+nnoremap <C-p> :Files<CR>
+nnoremap <Leader>b :Buffers<CR>
+
+" Advanced customization using autoload functions
+autocmd VimEnter * command! Colors
+  \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'})
+
+
+"==============================================================================
 " undotree
 "==============================================================================
 
@@ -275,8 +296,18 @@ let g:UltiSnipsExpandTrigger='<Tab>'
 let g:UltiSnipsJumpForwardTrigger='<c-b>'
 let g:UltiSnipsJumpBackwardTrigger='<c-z>'
 
-
 "==============================================================================
+" vim-easy-align
+"==============================================================================
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+
+"==============================================================================\
 " deoplete
 "==============================================================================
 
@@ -292,11 +323,3 @@ autocmd FileType python set completeopt-=preview
 
 let g:indentLine_char = '┆'
 
-
-"==============================================================================
-" CtrlP Settings
-"==============================================================================
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
