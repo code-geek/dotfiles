@@ -190,6 +190,12 @@ nnoremap E $
 "turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
 
+" Save
+inoremap <C-s><C-O>:update<CR>
+nnoremap <C-s>     :update<CR>
+nnoremap <leader>s :update<CR>
+nnoremap <leader>w :update<CR>
+
 
 "==============================================================================
 " Easymotion
