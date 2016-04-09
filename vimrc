@@ -105,6 +105,9 @@ Plug 'justinmk/vim-gtfo' "Opens the file manager or terminal at the directory of
 Plug 'xolox/vim-session'
 Plug 'xolox/vim-misc'
 
+Plug 'Raimondi/delimitMate'
+Plug 'mattn/emmet-vim'
+
 call plug#end()
 " }}}
 
