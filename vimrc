@@ -1,7 +1,10 @@
+" vim:set foldmethod=marker foldlevel=0:
+
 "==============================================================================
 " General vim settings
 "==============================================================================
 
+" {{{
 let mapleader=','
 let maplocalleader=','
 
@@ -51,6 +54,8 @@ set undofile                   " Persistent undo
 set undolevels=1000            " How many undos
 set undoreload=10000           " Number of lines to save for undo
 set wildmenu                   " Visual autocomplete for command menu
+set modelines=1                " Enable modelines
+set modeline                   " Enable modelines
 syntax on
 
 
@@ -59,12 +64,13 @@ if !empty(&viminfo)
 endif
 
 filetype plugin indent on
-
+" }}}
 
 "==============================================================================
 " Plugin list
 "==============================================================================
 
+" {{{
 call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'
@@ -100,12 +106,13 @@ Plug 'xolox/vim-session'
 Plug 'xolox/vim-misc'
 
 call plug#end()
-
+" }}}
 
 "==============================================================================
 " Colorscheme
 "==============================================================================
 
+" {{{
 set background=dark
 
 let g:gruvbox_invert_selection=0
@@ -126,12 +133,13 @@ if has('nvim')
     " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
     " let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 endif
-
+" }}}
 
 "==============================================================================
 " Mappings
 "==============================================================================
 
+" {{{
 if has('nvim')
     tnoremap <A-h> <C-\><C-n><C-w>h
     tnoremap <A-j> <C-\><C-n><C-w>j
@@ -191,16 +199,17 @@ nnoremap E $
 nnoremap <leader><space> :nohlsearch<CR>
 
 " Save
-inoremap <C-s><C-O>:update<CR>
-nnoremap <C-s>     :update<CR>
+inoremap <C-s><C-O> :update<CR>
+nnoremap <C-s> :update<CR>
 nnoremap <leader>s :update<CR>
 nnoremap <leader>w :update<CR>
-
+" }}}
 
 "==============================================================================
 " Easymotion
 "==============================================================================
 
+" {{{
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
 " Turn on case insensitive feature
@@ -209,12 +218,15 @@ let g:EasyMotion_smartcase = 1
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
-
+" }}}
 
 "==============================================================================
 " Synstastic
 "==============================================================================
 
+" {{{
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_flake8_args = '--ignore=E501,E225'
 let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
@@ -224,12 +236,13 @@ let g:syntastic_error_symbol = "✗"
 let g:syntastic_style_error_symbol = "✠"
 let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_style_warning_symbol = "≈"
-
+" }}}
 
 "==============================================================================
 " Airline
 "==============================================================================
 
+" {{{
 let g:airline_powerline_fonts = 1
 " if !exists('g:airline_symbols')
 "     let g:airline_symbols = {}
@@ -253,19 +266,22 @@ nmap <Leader>6 <Plug>AirlineSelectTab6
 nmap <Leader>7 <Plug>AirlineSelectTab7
 nmap <Leader>8 <Plug>AirlineSelectTab8
 nmap <Leader>9 <Plug>AirlineSelectTab9
+" }}}
 
 
 "==============================================================================
 " Flake8
 "==============================================================================
 
+" {{{
 let g:flake8_show_in_gutter=1
-
+" }}}
 
 "==============================================================================
 " FZF
 "==============================================================================
 
+" {{{
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
@@ -281,61 +297,73 @@ nnoremap <Leader>b :Buffers<CR>
 " Advanced customization using autoload functions
 autocmd VimEnter * command! Colors
   \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'})
-
+" }}}
 
 "==============================================================================
 " undotree
 "==============================================================================
 
+" {{{
 nmap <F3> :UndotreeToggle<CR>
+" }}}
 
 "==============================================================================
 " Tagbar
 "==============================================================================
 
+" {{{
 nmap <F10> :TagbarToggle<CR>
+" }}}
 
 "==============================================================================
 " vim-snippet
 "==============================================================================
 
+" {{{
 " let g:UltiSnipsUsePythonVersion = 2
 
 let g:UltiSnipsExpandTrigger='<Tab>'
 let g:UltiSnipsJumpForwardTrigger='<c-b>'
 let g:UltiSnipsJumpBackwardTrigger='<c-z>'
+" }}}
 
 "==============================================================================
 " vim-easy-align
 "==============================================================================
 
+" {{{
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
-
+" }}}
 
 "==============================================================================\
 " deoplete
 "==============================================================================
 
+" {{{
 " Enable completion
 let g:deoplete#enable_at_startup = 1
 
 " Disable pydoc split
 autocmd FileType python set completeopt-=preview
+" }}}
 
 "==============================================================================
 " Indentline
 "==============================================================================
 
+" {{{
 let g:indentLine_char = '┆'
+" }}}
 
 "==============================================================================
 " Vim Session
 "==============================================================================
 
+" {{{
 nnoremap <leader>so :OpenSession 
 nnoremap <leader>ss :SaveSession 
 nnoremap <leader>sd :DeleteSession<CR>
@@ -344,3 +372,4 @@ nnoremap <leader>sc :CloseSession<CR>
 let g:session_autoload = "no"
 let g:session_autosave = "no"
 let g:session_command_aliases = 1
+" }}}
