@@ -13,11 +13,11 @@ bindkey -v
 
 # tmux plugin settings
 # This always starts tmux
-# ZSH_TMUX_AUTOSTART=true
-# ZSH_TMUX_AUTOSTART_ONCE=true
-# ZSH_TMUX_AUTOCONNECT=false
-# ZSH_TMUX_FIXTERM=true
-# ZSH_TMUX_AUTOQUIT=true
+ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOSTART_ONCE=true
+ZSH_TMUX_AUTOCONNECT=false
+ZSH_TMUX_FIXTERM=true
+ZSH_TMUX_AUTOQUIT=true
 
 # Default editor to use
 export EDITOR=nvim
@@ -38,8 +38,8 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/django
     zgen oh-my-zsh plugins/command-not-found
     zgen load zsh-users/zsh-syntax-highlighting
-#    zgen oh-my-zsh plugins/tmuxinator
-#    zgen oh-my-zsh plugins/tmux
+    zgen oh-my-zsh plugins/tmuxinator
+    zgen oh-my-zsh plugins/tmux
 
     # bulk load
     zgen loadall <<EOPLUGINS
