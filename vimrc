@@ -210,11 +210,11 @@ nnoremap <leader>s :update<CR>
 nnoremap <leader>w :update<CR>
 
 " Yank text to the clipboard
-noremap <leader>y "*y
-noremap <leader>yy "*Y
+nnoremap <leader>y "+y
+nnoremap <leader>yy "+Y
 
 " Preserve indentation while pasting text from the clipboard
-noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
+nnoremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 " }}}
 
 "==============================================================================
