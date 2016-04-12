@@ -10,14 +10,16 @@ setopt histignoredups
 # Vi mode bindings
 bindkey -v
 
+# if you want to move inside a directory you can just type foo
+setopt AUTO_CD
 
 # tmux plugin settings
 # This always starts tmux
-ZSH_TMUX_AUTOSTART=true
-ZSH_TMUX_AUTOSTART_ONCE=true
-ZSH_TMUX_AUTOCONNECT=false
-ZSH_TMUX_FIXTERM=true
-ZSH_TMUX_AUTOQUIT=true
+# ZSH_TMUX_AUTOSTART=true
+# ZSH_TMUX_AUTOSTART_ONCE=true
+# ZSH_TMUX_AUTOCONNECT=false
+# ZSH_TMUX_FIXTERM=true
+# ZSH_TMUX_AUTOQUIT=true
 
 # Default editor to use
 export EDITOR=nvim
