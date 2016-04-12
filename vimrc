@@ -108,6 +108,8 @@ Plug 'xolox/vim-misc'
 Plug 'Raimondi/delimitMate'
 Plug 'mattn/emmet-vim'
 
+Plug 'zchee/deoplete-jedi'
+
 call plug#end()
 " }}}
 
@@ -206,6 +208,13 @@ inoremap <C-s><C-O> :update<CR>
 nnoremap <C-s> :update<CR>
 nnoremap <leader>s :update<CR>
 nnoremap <leader>w :update<CR>
+
+" Yank text to the clipboard
+noremap <leader>y "*y
+noremap <leader>yy "*Y
+
+" Preserve indentation while pasting text from the clipboard
+noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 " }}}
 
 "==============================================================================
@@ -375,4 +384,17 @@ nnoremap <leader>sc :CloseSession<CR>
 let g:session_autoload = "no"
 let g:session_autosave = "no"
 let g:session_command_aliases = 1
+" }}}
+
+"==============================================================================
+" Custom Functions
+"==============================================================================
+
+" {{{
+"This allows for change paste motion cp{motion}
+nmap <silent> cp :set opfunc=ChangePaste<CR>g@
+function! ChangePaste(type, ...)
+    silent exe "normal! `[v`]\"_c"
+    silent exe "normal! p"
+endfunction
 " }}}
