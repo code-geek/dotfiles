@@ -215,6 +215,10 @@ nnoremap <leader>yy "+Y
 
 " Preserve indentation while pasting text from the clipboard
 nnoremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
+
+" insert new line without going to insert mode
+nmap oo o<Esc>k
+nmap OO O<Esc>j
 " }}}
 
 "==============================================================================
