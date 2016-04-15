@@ -68,6 +68,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 # ashish
 source ~/.bash_aliases
+export DISABLE_AUTO_TITLE=true
 
 # Configuration for fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
