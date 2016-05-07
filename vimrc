@@ -36,7 +36,7 @@ set lazyredraw                 " Redraw only when we need to
 set list                       " Show invisible characters
 set noswapfile                 " Disable swap file
 set nowrap                     " Disable wrapping
-set number                     " Shows line number
+set relativenumber             " Shows relative line number
 set sessionoptions-=options    " Don't store options in sessions
 set shiftround                 " Round indent to multiple of 'shiftwidth'
 set shiftwidth=4               " Number of space insert/remove shifting line
@@ -218,8 +218,8 @@ nnoremap <leader>yy "+Y
 nnoremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 
 " insert new line without going to insert mode
-nmap oo o<Esc>k
-nmap OO O<Esc>j
+nmap <CR> o<Esc>k
+" nmap OO O<Esc>j
 " }}}
 
 "==============================================================================
@@ -438,3 +438,4 @@ fun! SetDjangoAppDir()
 endfun
 autocmd BufEnter *.py call SetDjangoAppDir()
 " }}}
+au FileType python setlocal formatprg=autopep8\ -
